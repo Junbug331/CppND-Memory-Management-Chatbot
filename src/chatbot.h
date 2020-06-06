@@ -26,10 +26,14 @@ public:
     ChatBot();                     // constructor WITHOUT memory allocation
     ChatBot(std::string filename); // constructor WITH memory allocation
     ~ChatBot();
-
+    
     //// STUDENT CODE
-    ////
-
+    // Copy Constructor
+    ChatBot(const ChatBot &rhs) = delete; // No deep copy policy 
+    ChatBot(ChatBot &&rhs);
+    // Assignment Operator
+    ChatBot& operator= (const ChatBot &rhs) = delete; // No L-value assignment
+    ChatBot& operator= (ChatBot &&rhs);
     ////
     //// EOF STUDENT CODE
 
@@ -41,6 +45,8 @@ public:
 
     // communication
     void ReceiveMessageFromUser(std::string message);
+
+
 };
 
 #endif /* CHATBOT_H_ */
